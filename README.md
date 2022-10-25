@@ -61,3 +61,12 @@ Externel Drives Should Have The /Volumes Added To The Start For MacOS.
 For Linux / Unix, Use /home/YourUser/DriveName Instead
 -> cd /Path/To/NameOfCmakeFile.cmake
 -> cmake
+
+
+
+
+
+##  Building Files
+
+### C++ / C
+You Can Use Makefile To Build And Compile The Scripts
