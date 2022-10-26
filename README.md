@@ -7,68 +7,22 @@ Like This (Can Use GitHub Account Or Not): NewProject-J-The-Fox
 
 You Can Also Use A README.md File In Your Project As Well To Add Extra Info
 
-### For Python Projects:
-The requirements.txt File Holds A List Of Useful Python Packages That Could be Used In General, 
-You Do Not Have To Use This File. However If You Choose To Add A Python Project, It Is Helpful 
-To Create A requirements.txt File If You Use Non-Built-In Packages.
+## Game Engines
+Popular Game Engines To Use Are
 
-To Get Packages From This File, Simply Run These Two Commands:
-On Windows:
--> cd DriveLetter:/Path/To/requirements.txt
--> python3 -m pip install -r requirements.txt
+Unity,
+Unreal Engine,
+Godot
 
-On Linux / Unix / MacOS:
-Externel Drives Should Have The /Volumes Added To The Start For MacOS. 
-For Linux / Unix, Use /home/YourUser/DriveName Instead
--> cd /Path/To/requirements.txt 
--> python3 -m pip install -r requirements.txt
+### Installation
 
-The setup.py Is Another Python File That Is Helpful To Have But Not Required.
-setup.py Holds Information Such As version, aurthor, packages (Folders), description, name, Among Other Things.
-You Can Run It Directly Or Run This Command:
+## Map Making
 
-On Windows:
--> python3 DriveLetter:/Path/To/requirements.txt
+Most Game Engines Support Their Own Map Making Tools In The Engine Themselves, However If You Would Like To Use External Tools, You Can Use Blender, or Twinmotion. To Help Make 3D Maps
 
-On Linux / Unix / MacOS:
-Externel Drives Should Have The /Volumes Added To The Start For MacOS. 
-For Linux / Unix, Use /home/YourUser/DriveName Instead
--> python3 Path/To/requirements.txt 
+### Texturing
 
-### For C++ / C / QT Creator Projects
-Make Sure To Include A Makefile File Or CMake File Within The Root Folder Of Your Project, This Will Allow Anyone To Compile Your Project Into An Executable Program
-
-When You Are Ready To Run The Project, (Or Clone It From GitHub), Run The Makefile / Cmake File By Running:
-
-For Makefile
-On Windows:
--> cd DriveLetter:/Path/To/Makefile.mk
--> make
-
-On Linux / Unix / MacOS:
-Externel Drives Should Have The /Volumes Added To The Start For MacOS. 
-For Linux / Unix, Use /home/YourUser/DriveName Instead
--> cd /Path/To/Makefile.mk
--> make
-
-For Cmake
-On Windows:
--> cd DriveLetter:/Path/To/NameOfCmakeFile.cmake
--> cmake
-
-On Linux / Unix / MacOS:
-Externel Drives Should Have The /Volumes Added To The Start For MacOS. 
-For Linux / Unix, Use /home/YourUser/DriveName Instead
--> cd /Path/To/NameOfCmakeFile.cmake
--> cmake
-
-
-
-
-
-##  Building Files
-
-Cmake and Makefile Are Helpful For Building And Creating An Excecutable Game
+Texturing Can Be Done Inside Most, If Not All Game Engines, However You Can Create Texures On Any Art App You Choose And Import Them Into Your Project A Great App Is Krita. It's Open Source And Availiable For All Platforms, However Use The App You Prefer
 
 ## Libraries And Frameworks
 
@@ -79,7 +33,7 @@ DirectX
 .NET
 Mono Framework
 
-### Instalation Of Libraries And Frameworks
+### Installation Of Libraries And Frameworks
 
 SDL2 Installation: 
 To Install SDL2, Go To https://github.com/libsdl-org/SDL/releases/tag/release-2.24.1 And Download The Correct Format For Your System.
@@ -149,7 +103,7 @@ On Windows Systems:
 On Linux / Unix Systems:
 Depending On Your Linux Distro And Pakage Manager
 For Debian With APT
--> sudo apt update
+-> sudo apt updates
 -> sudo apt upgrade
 -> sudo apt install dirmngr gnupg apt-transport-https ca-certificates
 -> sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
