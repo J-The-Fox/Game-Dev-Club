@@ -42,7 +42,7 @@ SDL2 Installation:
 On MacOSX Systems:
 - Install The SDL Framework By Adding It The /Library/Frameworks Folder. If You Don't Have The Permissions, You Can Instead Install It To /Users/Your_User/Library/Frameworks Folder. If The Folder Does Not Exist, Add It And Then Move The SDL2 Folder There
 
-You Can Alrernitlvy Install It Via Homebrew If You Have It Installed By Using The Commands
+You Can Alternatively Install It Via Homebrew If You Have It Installed By Using The Commands
 ```sh
 brew install SDL2
 brew install SDL2_image
@@ -79,12 +79,12 @@ DirectX Installation:
 .NET Installation:
 
 On MacOSX Systems:
-Go To https://dotnet.microsoft.com/en-us/download And Download The Selected Version
-Run The Package To Install It
+- Go To https://dotnet.microsoft.com/en-us/download And Download The Selected Version
+- Run The Package To Install It
 
 On Windows Systems:
-Go To https://dotnet.microsoft.com/en-us/download And Download The Selected Version
-Run The Installer To Install It
+- Go To https://dotnet.microsoft.com/en-us/download And Download The Selected Version
+- Run The Installer To Install It
 
 On Linux / Unix Systems:
 Depending On Your Linux Distro And Pakage Manager
@@ -126,7 +126,6 @@ sudo sh -c 'echo "deb https://download.mono-project.com/repo/ubuntu stable-bioni
 sudo apt update
 sudo apt install mono-complete
 ```
-(Replace The 'Version' With The Version Wanted. So For .NET6 It Would Be dotnet6)
 
 For Arch With Pacman
 ```sh
