@@ -5,7 +5,7 @@ Game Development Club
 Make Sure To Add Your Project Under The 'projects' Folder And Title The Folder With Your Project Name + Creator + Any Contributers Sepperated By Dashes
 Like This (Can Use GitHub Account Or Not): NewProject-J-The-Fox
 
-You Can Also Use A README.md File In Your Project As Well To Add Extra Info
+You Can Also Use A `README.md` File In Your Project As Well To Add Extra Info
 
 ## Game Engines
 Popular Game Engines To Use Are
@@ -79,11 +79,11 @@ DirectX Installation:
 .NET Installation:
 
 On MacOSX Systems:
-- Go To https://dotnet.microsoft.com/en-us/download And Download The Selected Version
+- Go To The [.NET Website](https://dotnet.microsoft.com/en-us/download) And Download The Selected Version
 - Run The Package To Install It
 
 On Windows Systems:
-- Go To https://dotnet.microsoft.com/en-us/download And Download The Selected Version
+- Go To The [.NET Website](https://dotnet.microsoft.com/en-us/download) And Download The Selected Version
 - Run The Installer To Install It
 
 On Linux / Unix Systems:
@@ -101,7 +101,7 @@ For Arch With Pacman
 sudo pacman -Syu
 sudo pacman -S dotnet-runtime dotnet-sdk
 ```
-More Information Can Be Found Here: https://wiki.archlinux.org/title/.NET
+More Information Can Be Found [Here](https://wiki.archlinux.org/title/.NET)
 
 For Fedora With DNF
 ```sh
