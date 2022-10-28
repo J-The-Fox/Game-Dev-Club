@@ -10,9 +10,9 @@ You Can Also Use A README.md File In Your Project As Well To Add Extra Info
 ## Game Engines
 Popular Game Engines To Use Are
 
-Unity,
-Unreal Engine,
-Godot
+- Unity
+- Unreal Engine
+- Godot
 
 ### Installation
 
@@ -27,24 +27,27 @@ Texturing Can Be Done Inside Most, If Not All Game Engines, However You Can Crea
 ## Libraries And Frameworks
 
 A List Of Popular Frameworks And Libraries:
-OpenGL
-SDL2
-DirectX
-.NET
-Mono Framework
+- OpenGL
+- SDL2
+- DirectX
+- .NET
+- Mono Framework
 
 ### Installation Of Libraries And Frameworks
 
 SDL2 Installation: 
-To Install SDL2, Go To https://github.com/libsdl-org/SDL/releases/tag/release-2.24.1 And Download The Correct Format For Your System.
+
+> To Install SDL2, Go To https://github.com/libsdl-org/SDL/releases/tag/release-2.24.1 And Download The Correct Format For Your System.
 
 On MacOSX Systems:
-Install The SDL Framework By Adding It The /Library/Frameworks Folder. If You Don't Have The Permissions, You Can Instead Install It To /Users/Your_User/Library/Frameworks Folder. If The Folder Does Not Exist, Add It And Then Move The SDL2 Folder There
+- Install The SDL Framework By Adding It The /Library/Frameworks Folder. If You Don't Have The Permissions, You Can Instead Install It To /Users/Your_User/Library/Frameworks Folder. If The Folder Does Not Exist, Add It And Then Move The SDL2 Folder There
 
 You Can Alrernitlvy Install It Via Homebrew If You Have It Installed By Using The Commands
--> brew install SDL2
--> brew install SDL2_image
--> brew install SDL2_ttf
+```sh
+brew install SDL2
+brew install SDL2_image
+brew install SDL2_ttf
+```
 
 On Windows Systems:
 
@@ -55,7 +58,6 @@ sudo apt update
 sudo apt upgrade
 sudo apt install sdl2
 ```
-(Replace The 'Version' With The Version Wanted. So For .NET6 It Would Be dotnet6)
 
 For Arch With Pacman
 ```sh
