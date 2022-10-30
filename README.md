@@ -1,9 +1,10 @@
 # Game-Dev-Club
 Game Develpment Club!
 
-Roses Are Red,\n
-Violets Are Blue,
-Unexpected '{' On Line 32
+> Roses Are Red,
+> Violets Are Blue,
+> Unexpected '{' 
+> On Line 32
 
 ## Projects
 Make Sure To Add Your Project Under The 'projects' Folder And Title The Folder With Your Project Name + Creator + Any Contributers Sepperated By Dashes
