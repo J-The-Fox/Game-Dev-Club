@@ -1,7 +1,7 @@
 # Game-Dev-Club
 Game Develpment Club!
 
-Roses Are Red,
+Roses Are Red,\n
 Violets Are Blue,
 Unexpected '{' On Line 32
 
