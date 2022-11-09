@@ -1,18 +1,21 @@
 # Game-Dev-Club
+
 Game Develpment Club!
 
 - Roses Are Red,
 - Violets Are Blue,
-- Unexpected '{' 
+- Unexpected '{'
 - On Line 32
 
 ## Projects
+
 Make Sure To Add Your Project Under The 'projects' Folder And Title The Folder With Your Project Name + Creator + Any Contributers Sepperated By Dashes
 Like This (Can Use GitHub Account Or Not): NewProject-J-The-Fox
 
 You Can Also Use A `README.md` File In Your Project As Well To Add Extra Info
 
 ## Game Engines
+
 Popular Game Engines To Use Are
 
 - Unity
@@ -32,6 +35,7 @@ Texturing Can Be Done Inside Most, If Not All Game Engines, However You Can Crea
 ## Libraries And Frameworks
 
 A List Of Popular Frameworks And Libraries:
+
 - OpenGL
 - SDL2
 - DirectX
@@ -40,14 +44,16 @@ A List Of Popular Frameworks And Libraries:
 
 ### Installation Of Libraries And Frameworks
 
-SDL2 Installation: 
+SDL2 Installation:
 
-> To Install SDL2, Go To https://github.com/libsdl-org/SDL/releases/tag/release-2.24.1 And Download The Correct Format For Your System.
+> To Install SDL2, Go [Here](https://github.com/libsdl-org/SDL/releases/tag/release-2.24.1) And Download The Correct Format For Your System.
 
 On MacOSX Systems:
+
 - Install The SDL Framework By Adding It The /Library/Frameworks Folder. If You Don't Have The Permissions, You Can Instead Install It To /Users/Your_User/Library/Frameworks Folder. If The Folder Does Not Exist, Add It And Then Move The SDL2 Folder There
 
 You Can Alternatively Install It Via Homebrew If You Have It Installed By Using The Commands
+
 ```sh
 brew install SDL2
 brew install SDL2_image
@@ -58,6 +64,7 @@ On Windows Systems:
 
 On Linux / Unix Systems:
 For Debian With APT
+
 ```sh
 sudo apt update
 sudo apt upgrade
@@ -65,50 +72,60 @@ sudo apt install sdl2
 ```
 
 For Arch With Pacman
+
 ```sh
 sudo pacman -Syu
 sudo pacman -S dotnet-runtime dotnet-sdk
 ```
-More Information Can Be Found Here: 
+
+More Information Can Be Found Here:
 
 For Fedora With DNF
+
 ```sh
 sudo dnf install sdl2
 ```
 
 OpenGL Installation:
-For OpenGL, Make Sure Your Grapchics Card Supports OpenGL, It Should Come Preinstalled With The Driver For Your Graphics Card. The Webiste Is https://www.opengl.org/.
+For OpenGL, Make Sure Your Grapchics Card Supports OpenGL, It Should Come Preinstalled With The Driver For Your Graphics Card. The The Website Can Be Found [Here](https://www.opengl.org/)
 
 DirectX Installation:
 
 .NET Installation:
 
 On MacOSX Systems:
+
 - Go To The [.NET Website](https://dotnet.microsoft.com/en-us/download) And Download The Selected Version
 - Run The Package To Install It
 
 On Windows Systems:
+
 - Go To The [.NET Website](https://dotnet.microsoft.com/en-us/download) And Download The Selected Version
 - Run The Installer To Install It
 
 On Linux / Unix Systems:
 Depending On Your Linux Distro And Pakage Manager
 For Debian With APT
+
 ```sh
 sudo apt update
 sudo apt upgrade
 sudo apt install dotnetVersion
 ```
+
 (Replace The 'Version' With The Version Wanted. So For .NET6 It Would Be dotnet6)
 
 For Arch With Pacman
+
 ```sh
 sudo pacman -Syu
 sudo pacman -S dotnet-runtime dotnet-sdk
 ```
+
 More Information Can Be Found [Here](https://wiki.archlinux.org/title/.NET)
 
 For Fedora With DNF
+
 ```sh
 sudo dnf install dotnet
 ```
@@ -122,6 +139,7 @@ On Windows Systems:
 On Linux / Unix Systems:
 Depending On Your Linux Distro And Pakage Manager
 For Debian With APT
+
 ```sh
 sudo apt update
 sudo apt upgrade
@@ -133,6 +151,7 @@ sudo apt install mono-complete
 ```
 
 For Arch With Pacman
+
 ```sh
 sudo pacman -Syu
 sudo pacman -S mono
@@ -140,6 +159,7 @@ sudo pacman -S mono-complete
 ```
 
 For Fedora With DNF
+
 ```sh
 sudo dnf install mono-devel
 ```
