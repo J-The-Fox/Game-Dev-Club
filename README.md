@@ -4,7 +4,7 @@ Game Develpment Club!
 
 - Roses Are Red,
 - Violets Are Blue,
-- Unexpected '{'
+- Expected '{'
 - On Line 32
 
 ## Projects
