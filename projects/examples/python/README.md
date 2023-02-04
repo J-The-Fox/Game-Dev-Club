@@ -5,7 +5,40 @@
 
 This Goes Over Some Of The Python Basics As Well As Some Of The Modules I Find To Be Useful
 
-Some Of The Modules Included:
+## How To Install Modules
+
+Installing Python Modules Is Pretty Simple.  
+Run This Command:
+
+> Note: If You Are On MacOS And Have Not Installed The Command Line Developer Tools Yet,  
+> You Will Be Asked To Install Them Before You Can Use These Commands.  
+
+> Note: On Linux, If You Do Not Have pip, Install It By Using Your Package Manager With The  
+> Package `python3-pip`
+
+```shell
+python3 -m pip install <package_name>
+```
+
+You Can View All The Currently Installed Packages By Using
+
+```shell
+python3 -m pip list
+```
+
+To List Outdated Packages Just Add The `--outdated` To Your List Command
+
+```shell
+python3 -m pip list --outdated
+```
+
+To Update Packages Type In Your Package(s) And Then A `--upgrade`
+
+```shell
+python3 -m pip install <package_name(s)> --upgrade
+```
+
+## Some Of The Modules Included:
 
 - pygame [Pygame.org](https://www.pygame.org/news), [GitHub](https://github.com/pygame/pygame), [PyPi](https://pypi.org/project/pygame/)
 - psutil [PyPi](https://pypi.org/project/psutil/)
@@ -16,7 +49,9 @@ Some Of The Modules Included:
 
 > Important Note!: If You Are On Python 3.11.x And Want To Use pygame, You Have To Install The Dev Version!  
 > 'python3 -m pip install pygame==2.1.3.dev8' Or Whatever Dev Version You Use  
-> Will Change If Something Happens
+> Will Update If Anything Changes
+
+---
 
 This Project Might Not Be Perfect But Hopefully It Helps! At Least A Little.  
 You Can Always Open An [Issue](https://github.com/J-The-Fox/Game-Dev-Club/issues) Or Start A [Discussion](https://github.com/J-The-Fox/Game-Dev-Club/discussions)!
