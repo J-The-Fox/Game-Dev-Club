@@ -60,3 +60,4 @@ def new_window(window_size: tuple, window_caption: str = "New Window!", tick_spe
 
 if __name__ == "__main__":
     new_window((400, 200))
+    

@@ -30,3 +30,4 @@ def my_function_str(arg1: str, arg2: str, kwarg1: str = "Green"):
 if __name__ == "__main__": # This Line Makes Sure That The File Can Only Be Called By Directly And Not Excuted By Another File, Helpful To Have When Importing Files
     my_function(arg1, arg2) # my_function with 2 arguments but not key word argument
     my_function(arg1, arg2, kwarg1="Yellow") # my_function with 2 arguments and a key word argument
+    
