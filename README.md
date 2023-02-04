@@ -56,4 +56,4 @@ Or View The Current [Issues](https://github.com/J-The-Fox/Game-Dev-Club/issues/n
 
 Happy Programming!
 
-\- Jay-The-Fox
+\- J-The-Fox
