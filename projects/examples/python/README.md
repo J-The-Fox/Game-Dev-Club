@@ -6,7 +6,7 @@
 
 This Goes Over Some Of The Python Basics As Well As Some Of The Modules I Find To Be Useful
 
-Some Of The Modules Include
+Some Of The Modules Included
 - pygame [Pygame.org](https://www.pygame.org/news), [GitHub](https://github.com/pygame/pygame), [PyPi](https://pypi.org/project/pygame/)
 - psutil [PyPi](https://pypi.org/project/psutil/)
 - requests [PyPi](https://pypi.org/project/requests/)
