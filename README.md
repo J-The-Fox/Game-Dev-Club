@@ -1,9 +1,9 @@
 # Game-Dev-Club
 
-![badge](https://img.shields.io/github/issues-pr/J-The-Fox/Game-Dev-Club?color=18ff00)
-![badge](https://img.shields.io/github/issues/J-The-Fox/Game-Dev-Club?color=ee7b1a)
-![badge](https://img.shields.io/github/contributors/J-The-Fox/Game-Dev-Club?color=00dbff)
-![badge](https://img.shields.io/github/commit-activity/w/J-The-Fox/Game-Dev-Club?color=2849d4)
+![badge](https://img.shields.io/github/last-commit/J-The-Fox/Game-Dev-Club?logo=0be500)
+![badge](https://img.shields.io/github/issues-pr/J-The-Fox/Game-Dev-Club?color=0be500)
+![badge](https://img.shields.io/github/contributors/J-The-Fox/Game-Dev-Club?color=0865d2)
+![badge](https://img.shields.io/github/commit-activity/w/J-The-Fox/Game-Dev-Club?color=0865d2)
 
 [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=J-The-Fox&repo=Game-Dev-Club&theme=dark)](https://github.com/J-The-Fox/Game-Dev-Club)
 
@@ -49,6 +49,8 @@ A Good IDE To Start With Would Be [VSCode](https://code.visualstudio.com/)
 Look For Updates In [Discussions](https://github.com/J-The-Fox/Game-Dev-Club/discussions). 
 
 ## Issues
+
+![badge](https://img.shields.io/github/issues/J-The-Fox/Game-Dev-Club?color=ee7b1a)
 
 When Making An Issue, Add Some Lables To Your Issue To Better Sort And Understand Them.  
 Add Some Description Too, Such As Where It's Happening Or Even Just The Error Would Work.  
