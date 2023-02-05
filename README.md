@@ -35,9 +35,11 @@ If You Have A Project You Would Like To Add, Create That Project In The [Project
 There Is Also An Examples Folder Just In Case You Might Need To Learn Something Or Want To Know How Something Works
 
 Your Game Or Programm Can Be In Any Language  
-Ex: Python, Java, C, C++, etc  
+Ex: Python, Java, C, Lua, etc  
+[![My Skills](https://skillicons.dev/icons?i=py,java,c,lua)](https://skillicons.dev)  
 Or Any Game Engine (If You Wanted To Go That Route)  
-Ex: [Unreal](https://www.unrealengine.com/en-US), [Unity](https://unity.com/), [Godot](https://godotengine.org/), etc
+Ex: [Unreal](https://www.unrealengine.com/en-US), [Unity](https://unity.com/), [Godot](https://godotengine.org/), etc  
+[![My Skills](https://skillicons.dev/icons?i=unreal,unity,godot)](https://skillicons.dev)  
 
 If You Need Help Installing A Language, Create A [Discussion](https://github.com/J-The-Fox/Game-Dev-Club/discussions) And I Can Try To Help  
 Same Goes For A Compiler, Interputer, or IDE
