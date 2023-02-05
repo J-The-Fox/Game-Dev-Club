@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Suggest something new for this project
-title: Feture Request or Change
+title: Feature Request or Change
 labels: Enhancement
 assignees: ''
 
