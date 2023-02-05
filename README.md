@@ -1,6 +1,11 @@
 # Game-Dev-Club
 
-An Unofficial Repository For The Game Develpment Club At NKC Highschool!
+![badge](https://img.shields.io/github/issues-pr/J-The-Fox/Game-Dev-Club?color=18ff00)
+![badge](https://img.shields.io/github/issues/J-The-Fox/Game-Dev-Club?color=ee7b1a)
+![badge](https://img.shields.io/github/contributors/J-The-Fox/Game-Dev-Club?color=00dbff)
+![badge](https://img.shields.io/github/commit-activity/w/J-The-Fox/Game-Dev-Club?color=2849d4)
+
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=J-The-Fox&repo=Game-Dev-Club&theme=dark)](https://github.com/J-The-Fox/Game-Dev-Club)
 
 ## Good Quotes
 
@@ -56,4 +61,4 @@ Or View The Current [Issues](https://github.com/J-The-Fox/Game-Dev-Club/issues/n
 
 Happy Programming!
 
-\- J-The-Fox
+\- [J-The-Fox](https://github.com/J-The-Fox)
