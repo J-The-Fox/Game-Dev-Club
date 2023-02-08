@@ -64,4 +64,6 @@ print("----------------------------------------------------")
 # With WARN, WARNING, ERROR And CRITICAL, You Can Also Have An Extra Message Below Using The Keyword Argument extra_msg
 logging.write("This Is Normal Text!", lvl=logging.WARN, extra_msg="This Is Extra Text!")
 
+logging.write(f"This Is The Version Of The Logger: {logging.VERSION}!", lvl=logging.INFO)
+
 # Logging Makes Debuging So Much Easier And Also It Is Neat To See What The Program Is Doing 
