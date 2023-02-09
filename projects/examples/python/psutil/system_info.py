@@ -22,7 +22,7 @@ systemInfoList = [
     f"Free: {psutil.swap_memory()[2]} Bytes",
     "# -----=====[CPU]=====----- #",
     f"Core Count: {psutil.cpu_count()}",
-    #f"Frequency: {psutil.cpu_freq()[0]}", # Works On Windows, Either MacOS Has An Issue Or psutil Has An Issue With It - -J-The-Fox
+    #f"Frequency: {psutil.cpu_freq()[0]}", # Works On Windows, Either MacOS Has An Issue Or psutil Has An Issue With It -J-The-Fox
     "# -----=====[Disk]=====----- #",
     "Size: " + str(psutil.disk_usage("/")[0]) + " Bytes",
     "Space Used: " + str(psutil.disk_usage("/")[1]) + " Bytes",
