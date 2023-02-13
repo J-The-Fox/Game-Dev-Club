@@ -88,7 +88,7 @@ class Logger():
     OVERWRITE = "w" # Default
 
     # Version
-    VERSION = "0.1.5" # Version 0.1.5
+    VERSION = "0.1.6" # Version 0.1.6
 
     def __init__(self, mode: int, format: list, log_file: str = "main.log", log_file_path: str = None, write_mode: str = "w", levelsShown = [DEBUG, INFO, WARN, ERROR, CRITICAL]) -> None:
         # Check If The log_file_path Is None, If It Is, Set It To The Current Directory
@@ -113,7 +113,6 @@ class Logger():
         # Check If The colorama Module Is Installed
         if 'colorama' not in _IMPORTERROR:
             self.use_color = True
-            print(colorama.Fore.WHITE)
         else:
             self.use_color = False
 
