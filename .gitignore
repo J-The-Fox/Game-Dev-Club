@@ -130,3 +130,9 @@ dmypy.json
 
 # MacOS Finder Cache
 .DS_Store
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
