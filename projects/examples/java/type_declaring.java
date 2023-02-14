@@ -50,10 +50,12 @@ public class type_declaring {
         System.out.println("String Assigned Later: " + myString2);
 
         // You Can Also Declare Multiple Variables Of The Same Type On The Same Line
-        String myString3, myString4;
+        // You Can Have Different Types Of Variables On The Same Line By Added The Type Before The Variable Name
+        // You Can Assign A Value To Them In The Same Line By Added An Equals Sign And The Value
+        String myString3 = "Hello", myString4 = "World!";
+        System.out.println("Multiple Strings: " + myString3 + " " + myString4);
 
         // You Can Also Declare Multiple Variables Of Different Types On The Same Line
-        String myString5; int myInt2; boolean myBoolean2;
 
         // You Can Use Custom Types
         // This Is A Custom Type Called Scanner
