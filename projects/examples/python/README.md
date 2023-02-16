@@ -47,9 +47,9 @@ python3 -m pip install <package_name(s)> --upgrade
 - Zope [Zope.dev](https://www.zope.dev/), [PyPi](https://pypi.org/project/Zope/)
 - colorama [PyPi](https://pypi.org/project/colorama/)
 
-> Important Note!: If You Are On Python 3.11.x And Want To Use pygame, You Have To Install The Dev Version!  
-> 'python3 -m pip install pygame==2.1.3.dev8' Or Whatever Dev Version You Use  
-> Will Update If Anything Changes
+> Important Note!: If You Are On Windows, Upgrade To The Lates Version Of pygame! 
+> 'python3 -m pip install pygame --upgrade'
+> This Will Alow You To Load Some Images You Otherwise Could Not
 
 ---
 
