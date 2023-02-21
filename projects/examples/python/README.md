@@ -1,7 +1,7 @@
 # Python Examples
 
-> [Python](https://www.python.org/)  
-> Make Sure You Are On [Python 3.0](https://www.python.org/doc/sunset-python-2/) Or Greater.
+> Make Sure You Are On Python 3.0 Or Greater.  
+> [Python 2.7 Is Deprecated](https://www.python.org/doc/sunset-python-2/)
 
 This Goes Over Some Of The Python Basics As Well As Some Of The Modules I Find To Be Useful
 
@@ -47,7 +47,7 @@ python3 -m pip install <package_name(s)> --upgrade
 - Zope [Zope.dev](https://www.zope.dev/), [PyPi](https://pypi.org/project/Zope/)
 - colorama [PyPi](https://pypi.org/project/colorama/)
 
-> Important Note!: If You Are On Windows, Upgrade To The Lates Version Of pygame! 
+> Important Note!: If You Are On Windows, Upgrade To The Latest Version Of pygame! 
 > 'python3 -m pip install pygame --upgrade'
 > This Will Alow You To Load Some Images You Otherwise Could Not
 
