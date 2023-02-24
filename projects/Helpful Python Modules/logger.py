@@ -207,13 +207,13 @@ class Logger():
                     logfile.write(output_string.join(format_list).replace(colorama.Fore.WHITE, "").replace(colorama.Fore.BLUE, "").replace(colorama.Fore.CYAN, "").replace(colorama.Fore.LIGHTYELLOW_EX, "").replace(colorama.Fore.LIGHTRED_EX, "").replace("[39m", "") + "\n")
                 else:
                     logfile.write(output_string.join(format_list) + "\n")
-                if extra_msg is not None and lvl == "BUG" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
+                if extra_msg is not None and lvl == "NOTICE" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
                     logfile.write(f"╰─> {extra_msg}\n")
 
         # If The Mode Is 2, Write To The Log File
         if self.mode == 2:
             print(output_string.join(format_list))
-            if extra_msg is not None and lvl == "BUG" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
+            if extra_msg is not None and lvl == "NOTICE" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
                 print(f"╰─> {extra_msg}")
 
         # If The Mode Is 3, Write To The File And The Terminal
@@ -224,7 +224,7 @@ class Logger():
                 else:
                     logfile.write(output_string.join(format_list) + "\n")
                 print(output_string.join(format_list))
-                if extra_msg is not None and lvl == "BUG" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
+                if extra_msg is not None and lvl == "NOTICE" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
                     logfile.write(f"╰─> {extra_msg}\n")
                     print(f"╰─> {extra_msg}")
         return
