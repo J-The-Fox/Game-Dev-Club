@@ -1,18 +1,20 @@
 """
-Helps with logging by providing functions to easily write out to a file, terminal or both
+Helps With Logging By Writing To A File And / Or The Terminal
 
-- logger.Logger: is for logging with the custom logger.
-- logger.Logger_module:  is for logging with the logger module.
+Note: This Module Will Use Colorama To Color The Text In The Terminal.  
+If It Is Not Installed, Color Will Not Be Used.
 
-Note: This module will use the colorama module if it is installed
+Version: 0.1.7
 """
 
+# Built-In Modules
 import datetime
 import os
 import inspect
 
 _IMPORTERROR = []
 
+# External Modules
 try:
     import colorama
 except ImportError:
@@ -54,16 +56,17 @@ class Logger():
 
     Log Levels:
 
-    There are 6 possible log levels
-    - BUG
-    - DEBUG
-    - INFO
-    - WARN / WARNING
-    - ERROR
-    - CRITICAL
+    There are 7 possible log levels
+    - BUG (Rarely Used, Only Used For Bugs)
+    - DEBUG (Used For Debugging Information)
+    - INFO (Basic Information)
+    - NOTICE (Something Important Happened But It Is Not An Error)
+    - WARN / WARNING (Something Went Wrong And Might Need To Be Looked At, Usually Used For A Minor Error)
+    - ERROR (Something Went Wrong, But The Program Can Recover)
+    - CRITICAL (Something Went Wrong, And The Program Can Not Recover)
 
-    When using WARN, WARNING, ERROR, or CRITICAL, the extra_msg argument can be passed in to provide more information.
-    If used when on INFO or DEBUG, the extra_msg argument will be ignored.
+    When using NOTICE, WARN, WARNING, ERROR, or CRITICAL, the extra_msg argument can be passed in to provide more information.
+    If used when on BUG, INFO or DEBUG, the extra_msg argument will be ignored.
 
     EX: + 2023-01-20 10:54:02.692807 - [ERROR] - Could Not Find File.
         ╰─> Could Not Find File 'main.py'.
@@ -73,6 +76,7 @@ class Logger():
     BUG = "BUG" # Rarely Used, Only Used For Bugs
     DEBUG = "DEBUG" # Used For Debugging Information
     INFO = "INFO" # Basic Information
+    NOTICE = "NOTICE" # Something Important Happened But It Is Not An Error
     WARN = "WARN" # Alias For WARNING, Mean The Same Thing
     WARNING = "WARNING" # Alias For WARN, Mean The Same Thing
     ERROR = "ERROR" # Something Went Wrong, But The Program Can Recover
@@ -88,9 +92,9 @@ class Logger():
     OVERWRITE = "w" # Default
 
     # Version
-    VERSION = "0.1.6" # Version 0.1.6
+    VERSION = "0.1.7"
 
-    def __init__(self, mode: int, format: list, log_file: str = "main.log", log_file_path: str = None, write_mode: str = "w", levelsShown = [DEBUG, INFO, WARN, ERROR, CRITICAL]) -> None:
+    def __init__(self, mode: int, format: list, log_file: str = "main.log", log_file_path: str = None, write_mode: str = "w", levelsShown = [DEBUG, INFO, WARN, ERROR, CRITICAL], use_color: bool = True) -> None:
         # Check If The log_file_path Is None, If It Is, Set It To The Current Directory
         if log_file_path is None:
             self.log_file_path = os.path.join(os.path.dirname(__file__), log_file)
@@ -112,7 +116,7 @@ class Logger():
 
         # Check If The colorama Module Is Installed
         if 'colorama' not in _IMPORTERROR:
-            self.use_color = True
+            self.use_color = use_color
         else:
             self.use_color = False
 
@@ -165,6 +169,8 @@ class Logger():
                     format_list.append(f"[{colorama.Fore.BLUE}{lvl}{colorama.Fore.RESET}]")
                 elif lvl == "INFO": # If The Level Is INFO, Make It Cyan
                     format_list.append(f"[{colorama.Fore.CYAN}{lvl}{colorama.Fore.RESET}]")
+                elif lvl == "NOTICE": # If The Level Is NOTICE, Make It Magenta
+                    format_list.append(f"[{colorama.Fore.LIGHTMAGENTA_EX}{lvl}{colorama.Fore.RESET}]")
                 elif "WARN" in lvl: # If The Level Is WARN or WARNING, Make It Yellow
                     format_list.append(f"[{colorama.Fore.LIGHTYELLOW_EX}{lvl}{colorama.Fore.RESET}]")
                 elif lvl == "ERROR" or lvl == "CRITICAL": # If The Level Is ERROR or CRITICAL, Make It Red
@@ -178,11 +184,13 @@ class Logger():
                 format_list.append(": ")
 
         # If The Level Provided Is Not In The Levels Shown List, Return
-        if "BUG" in str(format_list) and "DEBUG" not in self.levelsShown:
+        if "BUG" in str(format_list) and "BUG" not in self.levelsShown:
             return
         if "DEBUG" in str(format_list) and "DEBUG" not in self.levelsShown:
             return
         if "INFO" in str(format_list) and "INFO" not in self.levelsShown:
+            return
+        if "NOTICE" in str(format_list) and "NOTICE" not in self.levelsShown:
             return
         if "WARN" in str(format_list) and "WARN" not in self.levelsShown or "WARNING" in format_list and "WARNING" not in self.levelsShown:
             return
@@ -199,13 +207,13 @@ class Logger():
                     logfile.write(output_string.join(format_list).replace(colorama.Fore.WHITE, "").replace(colorama.Fore.BLUE, "").replace(colorama.Fore.CYAN, "").replace(colorama.Fore.LIGHTYELLOW_EX, "").replace(colorama.Fore.LIGHTRED_EX, "").replace("[39m", "") + "\n")
                 else:
                     logfile.write(output_string.join(format_list) + "\n")
-                if extra_msg is not None and lvl == "BUG" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
+                if extra_msg is not None and lvl == "NOTICE" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
                     logfile.write(f"╰─> {extra_msg}\n")
 
         # If The Mode Is 2, Write To The Log File
         if self.mode == 2:
             print(output_string.join(format_list))
-            if extra_msg is not None and lvl == "BUG" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
+            if extra_msg is not None and lvl == "NOTICE" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
                 print(f"╰─> {extra_msg}")
 
         # If The Mode Is 3, Write To The File And The Terminal
@@ -216,7 +224,7 @@ class Logger():
                 else:
                     logfile.write(output_string.join(format_list) + "\n")
                 print(output_string.join(format_list))
-                if extra_msg is not None and lvl == "BUG" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
+                if extra_msg is not None and lvl == "NOTICE" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
                     logfile.write(f"╰─> {extra_msg}\n")
                     print(f"╰─> {extra_msg}")
         return
@@ -242,7 +250,7 @@ class Logger():
             self.write(msg=f"[logger-close]: {exit_process} Exited With Code {exit_code}. Reason: {exit_reason}", lvl=Logger.INFO)
         return
     
-    def get_format(self, index: int = None) -> list|str:
+    def get_format(self, index: int = None) -> list | str:
         """
         Returns the format that was used in this instance
 
