@@ -5,7 +5,7 @@
 ![badge](https://img.shields.io/github/contributors/J-The-Fox/Game-Dev-Club?color=0865d2)
 ![badge](https://img.shields.io/github/commit-activity/w/J-The-Fox/Game-Dev-Club?color=0865d2)
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=J-The-Fox&repo=Game-Dev-Club&theme=dark)](https://github.com/J-The-Fox/Game-Dev-Club)
+[![Readme Card](https://github-readme-stats-sigma-five.vercel.app/api/pin/?username=J-The-Fox&repo=Game-Dev-Club&theme=dark)](https://github.com/J-The-Fox/Game-Dev-Club)
 
 ## Good Quotes
 
