@@ -8,7 +8,7 @@ To Give Some Credit To The Artists Here
 
 <img src="https://i1.sndcdn.com/artworks-vAx9HPvk5QPfl1yQ-v9BmoQ-t500x500.jpg" width="100" height="100">
 
-Te Walking Dog - Afterglow
+The Walking Dog - Afterglow
 
 <img src="https://i1.sndcdn.com/artworks-XaVscAyYlyfhoVtg-ZK5OsA-t500x500.jpg" width="100" height="100">
 
