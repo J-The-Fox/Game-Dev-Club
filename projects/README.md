@@ -12,6 +12,8 @@ This File Is For Displaying Projects That May Be In Other Places (In Another Rep
 
 ## AlexRivard's Projects
 
+<img src="https://media.tenor.com/68CYA217AncAAAAC/nickel-spinning.gif" width="100" height="100">
+
 ## Corgi1234's Projects
 
 ## Henry Hare's Projects
