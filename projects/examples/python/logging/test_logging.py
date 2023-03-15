@@ -9,20 +9,25 @@ _logging_write_mode   = None # This Is The Write Mode If You Were Writing A Log 
 _logging_format       = ['dt', 'lvl', 'msg'] # This Is The Format Of Log File
 _log_file             = "test.log" # This Is The File Name For The Log File If It Were Set
 _logging_file_path    = os.path.dirname(__file__) # This Is Where The Log File Would Go If It Were Set. It Is Set To Be In The Same Directory Of This File
-_logging_levels_shown = [logger.Logger.BUG, logger.Logger.DEBUG, logger.Logger.INFO, logger.Logger.NOTICE, logger.Logger.WARN, logger.Logger.ERROR, logger.Logger.CRITICAL] # This Shows What Levels Are Shown When Logging Happens
+_logging_levels_shown = [logger.Logger.ART, logger.Logger.BUG, logger.Logger.DEBUG, logger.Logger.INFO, logger.Logger.NOTICE, logger.Logger.WARN, logger.Logger.ERROR, logger.Logger.CRITICAL] # This Shows What Levels Are Shown When Logging Happens
 
 logging = logger.Logger(mode=_logging_mode, format=_logging_format, log_file=_log_file, log_file_path=_logging_file_path, write_mode=_logging_write_mode, levelsShown=_logging_levels_shown)
 # This Sets The logging Variable To Be The 'Logger' Class From The Module 'logger'
 
+logging.init()
+
+# -----=====[Methods]=====----- #
 # This Is All The Methods The Current Logger Has
-logging.init # -> Initlize The Logger
+logging.init  # -> Initlize The Logger
 logging.write # -> Writes Out A Message From The 
 logging.close # -> Adds A Closing Statment And Exit Code To The Log
 
 logging.clear_log_file # -> Erases The Current Logging File
 
-logging.get_format # -> Returns The Format List
-logging.get_write_mode # Returns The Write Mode
+logging.get_format        # -> Returns The Format List
+logging.get_write_mode    # -> Returns The Write Mode
+logging.get_log_file_name # -> Returns The Log File Name
+logging.get_log_file_path # -> Returns The Log File Path
 
 # The () Are Removed To Make Them Not Callable
 
@@ -49,9 +54,10 @@ logging.VERSION
 print("This Is Text In A Print Statment!")
 logging.write("This Is Text But In The logging.write Method With A lvl Of INFO!", lvl=logging.INFO)
 
-print("------------------------------------------")
+print("----------------------------------------------------")
 
 # Here Are All The Levels The Logger Can Have And What They Look Like
+logging.write("ART!", lvl=logging.ART)
 logging.write("BUG!", lvl=logging.BUG)
 logging.write("DEBUG!", lvl=logging.DEBUG)
 logging.write("INFO!", lvl=logging.INFO)
@@ -67,6 +73,6 @@ print("----------------------------------------------------")
 logging.write("This Is Normal Text!", lvl=logging.NOTICE, extra_msg="This Is Extra Text!")
 
 logging.write(f"This Is The Version Of The Logger: {logging.VERSION}!", lvl=logging.INFO)
-logging.write("It Got Upadated From 0.1.6 To 0.1.7 :)", lvl=logging.INFO)
+logging.write("It Got Upadated From 0.1.7 To 0.1.8-dev4 :)", lvl=logging.INFO)
 
 # Logging Makes Debuging So Much Easier And Also It Is Neat To See What The Program Is Doing 

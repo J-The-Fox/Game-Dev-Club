@@ -4,7 +4,7 @@ Helps With Logging By Writing To A File And / Or The Terminal
 Note: This Module Will Use Colorama To Color The Text In The Terminal.  
 If It Is Not Installed, Color Will Not Be Used.
 
-Version: 0.1.7
+Version: 0.1.8-dev4
 """
 
 # Built-In Modules
@@ -27,10 +27,11 @@ class Logger():
 
     Log Modes:
 
-    There are 3 different log modes
-    - LOGTOFILE
-    - LOGTOTERM
-    - LOGTOTERMANDFILE
+    There are 4 different log modes
+    - 0 or LOGDISABLED (No Logging)
+    - 1 or LOGTOTERM (Log To Terminal Only)
+    - 2 or LOGTOFILE (Log To File Only)
+    - 3 or LOGTOTERMANDFILE (Log To Terminal And File)
 
     These are set when you first call it.
     EX: Logger = logger.Logger(logger.Logger.LOGTOTERM)
@@ -41,23 +42,25 @@ class Logger():
 
     Write Mode:
 
-    2 Write Modes are able to be used when logging to a file. 
-    Use 'a' for appending the new log to the existing file.
-    Use 'w' for erasing and starting a new log on the existing file
+    2 Write Modes are able to be used when logging to a file.
+    - a or append (Append)
+    - w or overwrite (Overwrite)
 
     Format:
 
     The format is in a list with 3 possible values being: dt, msg, and lvl. 
-    'dt' is datetime and pulls the date and time using datetime.datetime.now().
-    'lvl' is the level that gets passed in when using the .write() call.
-    'msg' is the message that gets passed in when using the .write() call.
+    - dt (Date + Time)
+    - lvl (Log Level)
+    - msg (Message)
 
-    A format like ['dt', 'lvl', 'msg'] would be displayed as: '+ 2023-01-20 10:49:26.358819 - [INFO] - Message Passed Through'
+    A format like ['dt', 'lvl', 'msg'] would be displayed as: '+ 2023-01-20 10:49:26.358819 - [INFO] - Message Passed Through'  
+    Note: A Time and Date Format Is In The Works, But Is Not Ready Yet.
 
     Log Levels:
 
-    There are 7 possible log levels
-    - BUG (Rarely Used, Only Used For Bugs)
+    There are 8 possible log levels
+    - ART (Used Mainly For ASCII Art)
+    - BUG (Rarely Used, Only Used For Bugs That Are Known But Not Fixed)
     - DEBUG (Used For Debugging Information)
     - INFO (Basic Information)
     - NOTICE (Something Important Happened But It Is Not An Error)
@@ -66,14 +69,15 @@ class Logger():
     - CRITICAL (Something Went Wrong, And The Program Can Not Recover)
 
     When using NOTICE, WARN, WARNING, ERROR, or CRITICAL, the extra_msg argument can be passed in to provide more information.
-    If used when on BUG, INFO or DEBUG, the extra_msg argument will be ignored.
+    If used when on ART, BUG, INFO or DEBUG, the extra_msg argument will be ignored.
 
     EX: + 2023-01-20 10:54:02.692807 - [ERROR] - Could Not Find File.
         ╰─> Could Not Find File 'main.py'.
     """
 
     # Log Level
-    BUG = "BUG" # Rarely Used, Only Used For Bugs
+    ART = "ART" # Used Mainly For ASCII Art
+    BUG = "BUG" # Rarely Used, Only Used For Bugs That Are Known But Not Fixed
     DEBUG = "DEBUG" # Used For Debugging Information
     INFO = "INFO" # Basic Information
     NOTICE = "NOTICE" # Something Important Happened But It Is Not An Error
@@ -83,8 +87,9 @@ class Logger():
     CRITICAL = "CRITICAL" # Something Went Wrong, And The Program Can Not Recover
 
     # Log Mode
-    LOGTOFILE = 1
-    LOGTOTERM = 2
+    LOGDISABLED = 0
+    LOGTOTERM = 1
+    LOGTOFILE = 2
     LOGTOTERMANDFILE = 3
 
     # Write Mode
@@ -92,26 +97,21 @@ class Logger():
     OVERWRITE = "w" # Default
 
     # Version
-    VERSION = "0.1.7"
+    VERSION = "0.1.8-dev4"
 
-    def __init__(self, mode: int, format: list, log_file: str = "main.log", log_file_path: str = None, write_mode: str = "w", levelsShown = [DEBUG, INFO, WARN, ERROR, CRITICAL], use_color: bool = True) -> None:
+    def __init__(self, mode: int, write_mode: str = "w", format: list = ["dt", "lvl", "msg"], log_file: str = "main.log", log_file_path: str = None, maxSize: int = 100000, levelsShown = [BUG, DEBUG, INFO, NOTICE, WARN, ERROR, CRITICAL], use_color: bool = True) -> None:
         # Check If The log_file_path Is None, If It Is, Set It To The Current Directory
         if log_file_path is None:
             self.log_file_path = os.path.join(os.path.dirname(__file__), log_file)
         else:
             self.log_file_path = os.path.join(log_file_path, log_file)
-
-        # Set The Log File Name
         self.log_file = log_file
+        self.maxSize = maxSize
 
-        # Set The Mode
         self.mode = mode
-        # Set The Write Mode
         self.write_mode = write_mode
-        # Set The Format
         self.format = format
 
-        # Set The Levels Shown
         self.levelsShown = levelsShown
 
         # Check If The colorama Module Is Installed
@@ -120,14 +120,14 @@ class Logger():
         else:
             self.use_color = False
 
-    def init(self) -> None:
+    def init(self, log_text=False) -> None:
         """
         Initilize The Logger
+
+        Arguments:
+            log_text (bool): If True, Will Log The Initilization Text. Defaults To False.
         """
 
-        # If the user is only writting to the terminal, no need to create a new log file, just skip creating / clearing on the init
-        if self.mode == 2:
-            return
         # If the user has selected one of two log to file modes, either clear the file or append to the existing file
         if self.write_mode == "w":
             with open(self.log_file_path, self.write_mode) as logfile:
@@ -137,7 +137,29 @@ class Logger():
             with open(self.log_file_path, self.write_mode) as logfile:
                 logfile.write("\n")
                 logfile.close()
-        return # Return when done
+
+        # If The User Has Selected To Log To The Terminal, Log The Initilization Text And Configuration Information
+        if log_text:
+            if os.path.getsize(self.log_file_path) > self.maxSize:
+                with open(self.log_file_path, "w") as f:
+                    f.write("")
+                    f.close()
+                self.write("The Log File Is Greater Than The Maximum Size Allowed, Overwriting The Log File", self.WARN)
+            self.write("Logger Version: " + self.VERSION, self.INFO)
+
+            self.write("====================================[ Logging Config ]====================================", self.INFO)
+            self.write(f"Log Mode: {self.mode}", self.INFO)
+            self.write(f"Write Mode: {self.write_mode}", self.INFO)
+            self.write(f"Format: {self.format}", self.INFO)
+            self.write(f"Log File: {self.log_file}", self.INFO)
+            self.write(f"Log File Path: {self.log_file_path}", self.INFO)
+            self.write(f"Levels Shown: {self.levelsShown}", self.INFO)
+            self.write(f"Use Color: {self.use_color}", self.INFO)
+            self.write("==========================================================================================", self.INFO)
+
+        # If the user is only writting to the terminal, no need to create a new log file, just skip creating / clearing on the init
+        # if self.mode == 2:
+        return
 
     def write(self, msg: str, lvl: str, extra_msg: str = None) -> None:
         """
@@ -153,37 +175,12 @@ class Logger():
         """
 
         output_string = ""
-        format_list = ["+ "]
-
-        # Use The Formatting Provided In The init Function and Create The Log
-        index = 0
-        for format_data in self.format: # Loop Through The Format List
-            if str(format_data).capitalize() == "Dt":
-                format_list.append(str(datetime.datetime.now())) # Add The Current Date And Time
-            if str(format_data).capitalize() == "Msg":
-                format_list.append(msg) # Add The Message
-            if str(format_data).capitalize() == "Lvl" and self.use_color is True:
-                if lvl == "BUG": # If The Level Is BUG, Make It Green
-                    format_list.append(f"[{colorama.Fore.LIGHTGREEN_EX}{lvl}{colorama.Fore.RESET}]")
-                elif lvl == "DEBUG": # If The Level Is DEBUG, Make It Blue
-                    format_list.append(f"[{colorama.Fore.BLUE}{lvl}{colorama.Fore.RESET}]")
-                elif lvl == "INFO": # If The Level Is INFO, Make It Cyan
-                    format_list.append(f"[{colorama.Fore.CYAN}{lvl}{colorama.Fore.RESET}]")
-                elif lvl == "NOTICE": # If The Level Is NOTICE, Make It Magenta
-                    format_list.append(f"[{colorama.Fore.LIGHTMAGENTA_EX}{lvl}{colorama.Fore.RESET}]")
-                elif "WARN" in lvl: # If The Level Is WARN or WARNING, Make It Yellow
-                    format_list.append(f"[{colorama.Fore.LIGHTYELLOW_EX}{lvl}{colorama.Fore.RESET}]")
-                elif lvl == "ERROR" or lvl == "CRITICAL": # If The Level Is ERROR or CRITICAL, Make It Red
-                    format_list.append(f"[{colorama.Fore.LIGHTRED_EX}{lvl}{colorama.Fore.RESET}]")
-            elif str(format_data).capitalize() == "Lvl":
-                format_list.append(f"[{lvl}]") # Add The Level
-            index += 1
-            if index < 2:
-                format_list.append(" - ")
-            if index == 2:
-                format_list.append(": ")
+        # Use The Formatting Provided In The init Function and Create The Log String
+        format_list = self.__parse_format__(msg, lvl)
 
         # If The Level Provided Is Not In The Levels Shown List, Return
+        if "ART" in str(format_list) and "ART" not in self.levelsShown:
+            return
         if "BUG" in str(format_list) and "BUG" not in self.levelsShown:
             return
         if "DEBUG" in str(format_list) and "DEBUG" not in self.levelsShown:
@@ -199,9 +196,14 @@ class Logger():
         if "CRITICAL" in str(format_list) and "CRITICAL" not in self.levelsShown:
             return
 
-
         # If The Mode Is 1, Write To The Terminal
         if self.mode == 1:
+            print(output_string.join(format_list))
+            if extra_msg is not None and lvl == "NOTICE" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
+                print(f"╰─> {extra_msg}")
+
+        # If The Mode Is 2, Write To The Log File
+        if self.mode == 2:
             with open(self.log_file_path, "a") as logfile:
                 if self.use_color is True:
                     logfile.write(output_string.join(format_list).replace(colorama.Fore.WHITE, "").replace(colorama.Fore.BLUE, "").replace(colorama.Fore.CYAN, "").replace(colorama.Fore.LIGHTYELLOW_EX, "").replace(colorama.Fore.LIGHTRED_EX, "").replace("[39m", "") + "\n")
@@ -209,12 +211,6 @@ class Logger():
                     logfile.write(output_string.join(format_list) + "\n")
                 if extra_msg is not None and lvl == "NOTICE" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
                     logfile.write(f"╰─> {extra_msg}\n")
-
-        # If The Mode Is 2, Write To The Log File
-        if self.mode == 2:
-            print(output_string.join(format_list))
-            if extra_msg is not None and lvl == "NOTICE" or extra_msg is not None and lvl == "WARN" or extra_msg is not None and lvl == "WARNING" or extra_msg is not None and lvl == "ERROR" or extra_msg is not None and lvl == "CRITICAL":
-                print(f"╰─> {extra_msg}")
 
         # If The Mode Is 3, Write To The File And The Terminal
         if self.mode == 3:
@@ -229,7 +225,7 @@ class Logger():
                     print(f"╰─> {extra_msg}")
         return
 
-    def close(self, exit_code: int | str, exit_process: str = None, exit_reason: str = None) -> None:
+    def close(self, exit_code: int, exit_process: str = None, exit_reason: str = None) -> None:
         """
         Close The Logger And Write The Exit Message To The Log File.
 
@@ -250,26 +246,14 @@ class Logger():
             self.write(msg=f"[logger-close]: {exit_process} Exited With Code {exit_code}. Reason: {exit_reason}", lvl=Logger.INFO)
         return
     
-    def get_format(self, index: int = None) -> list | str:
+    def get_format(self) -> str:
         """
-        Returns the format that was used in this instance
+        Returns The Format List Used To Format The Log Message
 
-        Use no parameters to give a list of the format.
-
-        Use an index, starting at 0, to get a specific item in the format list; returns a string. Index can be up to 2
-
-        Optional Arguments:
-            index (int): The Index Of The Format List To Return. Defaults To None.
+        Takes No Arguments
         """
 
-        # If The Index Is Greater Than 2, Return. As The Format List Only Has 3 Items
-        if index > 2:
-            return
-
-        if index is None:
-            return self.format
-        else:
-            return str(self.format[index])
+        return self.format
 
     def get_write_mode(self) -> str:
         """
@@ -309,3 +293,38 @@ class Logger():
         """
 
         return self.log_file
+    
+    # Private Functions
+    def __parse_format__(self, msg, lvl) -> list:
+        format_list = ["+ "]
+
+        # Use The Formatting Provided In The init Function and Create The Log
+        index = 0
+        for format_data in self.format: # Loop Through The Format List
+            if str(format_data).capitalize() == "Dt":
+                format_list.append(str(datetime.datetime.now())) # Add The Current Date And Time
+            if str(format_data).capitalize() == "Msg":
+                format_list.append(msg) # Add The Message
+            if str(format_data).capitalize() == "Lvl" and self.use_color is True:
+                if lvl == "ART": # If The Level Is ART, Make It Grey:
+                    format_list.append(f"[{colorama.Fore.LIGHTBLACK_EX}{lvl}{colorama.Fore.RESET}]")
+                if lvl == "BUG": # If The Level Is BUG, Make It Green
+                    format_list.append(f"[{colorama.Fore.LIGHTGREEN_EX}{lvl}{colorama.Fore.RESET}]")
+                elif lvl == "DEBUG": # If The Level Is DEBUG, Make It Blue
+                    format_list.append(f"[{colorama.Fore.BLUE}{lvl}{colorama.Fore.RESET}]")
+                elif lvl == "INFO": # If The Level Is INFO, Make It Cyan
+                    format_list.append(f"[{colorama.Fore.CYAN}{lvl}{colorama.Fore.RESET}]")
+                elif lvl == "NOTICE": # If The Level Is NOTICE, Make It Magenta
+                    format_list.append(f"[{colorama.Fore.LIGHTMAGENTA_EX}{lvl}{colorama.Fore.RESET}]")
+                elif "WARN" in lvl: # If The Level Is WARN or WARNING, Make It Yellow
+                    format_list.append(f"[{colorama.Fore.LIGHTYELLOW_EX}{lvl}{colorama.Fore.RESET}]")
+                elif lvl == "ERROR" or lvl == "CRITICAL": # If The Level Is ERROR or CRITICAL, Make It Red
+                    format_list.append(f"[{colorama.Fore.LIGHTRED_EX}{lvl}{colorama.Fore.RESET}]")
+            elif str(format_data).capitalize() == "Lvl":
+                format_list.append(f"[{lvl}]") # Add The Level
+            index += 1
+            if index < 2:
+                format_list.append(" - ")
+            if index == 2:
+                format_list.append(": ")
+        return format_list
