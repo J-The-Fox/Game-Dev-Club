@@ -4,7 +4,7 @@ import os
 import logger
 
 # -----=====[Logging Paramaters]=====----- #
-_logging_mode         = logger.Logger.LOGTOTERM # This Is Where The Goes, It Can Go To The Terminal, A File Or Both. It Is Set To Terminal For Right Now
+_logging_mode         = logger.Logger.LOGTOTERM # This Is Where The Log Mode Goes, It Can Be Set To 1 Of 4 Options. LOGDISABLED, LOGTOTERM, LOGTOFILE, LOGTOTERMANDFILE. It Is Set To Terminal For Right Now
 _logging_write_mode   = None # This Is The Write Mode If You Were Writing A Log File. 'w'  Clears It Nn Start While 'a' Appends To The End Of The Existing File
 _logging_format       = ['dt', 'lvl', 'msg'] # This Is The Format Of Log File
 _log_file             = "test.log" # This Is The File Name For The Log File If It Were Set
@@ -45,6 +45,7 @@ logging.CRITICAL
 logging.APPEND
 logging.OVERWRITE
 # -----=====[Logging Modes]=====----- #
+logging.LOGDISABLED
 logging.LOGTOFILE
 logging.LOGTOTERM
 logging.LOGTOTERMANDFILE
