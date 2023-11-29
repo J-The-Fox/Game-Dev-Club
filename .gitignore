@@ -138,5 +138,6 @@ dmypy.json
 .idea/
 
 # Godot caches
-# See https://docs.godotengine.org/en/3.1/getting_started/workflow/project_setup/project_organization.html#directories
-shader_cache/
+# See https://docs.godotengine.org/en/stable/tutorials/best_practices/project_organization.html
+.godot/
+*.translation
